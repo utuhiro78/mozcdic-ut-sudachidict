@@ -1,17 +1,17 @@
 ---
 title: Mozc UT SudachiDict Dictionary
-date: 2023-01-15
+date: 2023-01-16
 ---
 
 ## Overview
 
-Mozc UT SudachiDict Dictionary is a dictionary converted from the [SudachiDict](https://github.com/WorksApplications/SudachiDict) for Mozc.
+Mozc UT SudachiDict Dictionary is a dictionary converted from [SudachiDict](https://github.com/WorksApplications/SudachiDict) for Mozc.
 
 Thanks to the SudachiDict team.
 
 ## License
 
-mozcdic-ut-sudachidict.txt: [Apache License, Version 2.0](https://github.com/WorksApplications/SudachiDict/blob/develop/LICENSE-2.0.txt)
+mozcdic-ut-sudachidict.txt: [Apache License, Version 2.0](https://github.com/WorksApplications/SudachiDict/blob/develop/LEGAL)
 
 Source code: Apache License, Version 2.0
 
@@ -36,8 +36,6 @@ To modify the costs or merge multiple UT dictionaries into one, use the followin
 Requirement(s): ruby, rsync
 
 ```
-gem install bzip2-ffi parallel
-
 cd src/
 sh make.sh
 ```
