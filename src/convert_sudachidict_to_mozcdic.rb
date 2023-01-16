@@ -11,18 +11,14 @@ url = "http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/"
 date = URI.open(url).read.split("/core_lex.zip")[0]
 date = date.split("'")[-1]
 
-if FileTest.exist?("sudachidict-" + date + ".txt") == true
-	puts "sudachidict is up to date."
-else
-	`wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/core_lex.zip`
-	`wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/notcore_lex.zip`
+`wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/core_lex.zip`
+`wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/notcore_lex.zip`
 
-	`rm -f {core_lex,csv,notcore_lex.csv}`
-	`unzip core_lex.zip`
-	`unzip notcore_lex.zip`
+`rm -f {core_lex.csv,notcore_lex.csv}`
+`unzip core_lex.zip`
+`unzip notcore_lex.zip`
 
-	`cat core_lex.csv notcore_lex.csv > sudachidict-#{date}.txt`
-end
+`cat core_lex.csv notcore_lex.csv > sudachidict-#{date}.txt`
 
 filename = "sudachidict-" + date + ".txt"
 dicname = "mozcdic-ut-sudachidict.txt"
@@ -99,7 +95,7 @@ end
 lines = l2.sort
 l2 = []
 
-# Mozc形式で書き出す
+# Mozc 形式で書き出す
 dicfile = File.new(dicname, "w")
 
 lines.length.times do |i|
