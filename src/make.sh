@@ -9,6 +9,3 @@ ruby filter_unsuitable_words.rb mozcdic-ut-sudachidict.txt
 
 tar cjf mozcdic-ut-sudachidict.txt.tar.bz2 mozcdic-ut-sudachidict.txt
 mv mozcdic-ut-sudachidict.txt* ../
-
-rm -rf ../../mozcdic-ut-sudachidict-release/
-rsync -a ../* ../../mozcdic-ut-sudachidict-release --exclude=jawiki-* --exclude=*core_lex.* --exclude=sudachidict-*.txt --exclude=mozcdic-ut-*.txt
