@@ -1,8 +1,3 @@
----
-title: Mozc UT SudachiDict Dictionary
-date: 2023-01-16
----
-
 ## Overview
 
 Mozc UT SudachiDict Dictionary is a dictionary converted from [SudachiDict](https://github.com/WorksApplications/SudachiDict) for Mozc.
