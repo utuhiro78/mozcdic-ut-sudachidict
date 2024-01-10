@@ -11,14 +11,16 @@ url = "http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/"
 date = URI.open(url).read.split("/core_lex.zip")[0]
 date = date.split("'")[-1]
 
+`wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/small_lex.zip`
 `wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/core_lex.zip`
 `wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/notcore_lex.zip`
 
-`rm -f {core_lex.csv,notcore_lex.csv}`
+`rm -f {small_lex.csv,core_lex.csv,notcore_lex.csv}`
+`unzip small_lex.zip`
 `unzip core_lex.zip`
 `unzip notcore_lex.zip`
 
-`cat core_lex.csv notcore_lex.csv > sudachidict-#{date}.txt`
+`cat small_lex.csv core_lex.csv notcore_lex.csv > sudachidict-#{date}.txt`
 
 filename = "sudachidict-" + date + ".txt"
 dicname = "mozcdic-ut-sudachidict.txt"
@@ -56,7 +58,13 @@ lines.length.times do |i|
 	# 表記が1文字の場合はスキップ
 	hyouki[1] == nil ||
 	# 表記が26文字以上の場合はスキップ。候補ウィンドウが大きくなりすぎる
-	hyouki[25] != nil
+	hyouki[25] != nil ||
+	# 名詞以外の場合はスキップ
+	s[5] != "名詞" ||
+	# 「地名」をスキップ。地名は郵便番号ファイルから生成する
+	s[7] == "地名" ||
+	# 「名」をスキップ
+	s[8] == "名"
 		next
 	end
 
@@ -77,13 +85,7 @@ lines.length.times do |i|
 	end
 
 	# 表記が s[0] と異なる場合はスキップ
-	if hyouki != s[0] ||
-	# 名詞以外の場合はスキップ
-	s[5] != "名詞" ||
-	# 「地名」をスキップ。地名は郵便番号ファイルから生成する
-	s[7] == "地名" ||
-	# 「名」をスキップ
-	s[8] == "名"
+	if hyouki != s[0]
 		next
 	end
 
