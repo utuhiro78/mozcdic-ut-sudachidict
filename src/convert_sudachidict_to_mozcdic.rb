@@ -7,7 +7,9 @@
 require 'open-uri'
 require 'nkf'
 
-date = "20240409"
+url = "http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/"
+date = URI.open(url).read.split("/core_lex.zip")[0]
+date = date.split("'")[-1]
 
 `wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/small_lex.zip`
 `wget -N http://sudachi.s3-website-ap-northeast-1.amazonaws.com/sudachidict-raw/#{date}/core_lex.zip`
