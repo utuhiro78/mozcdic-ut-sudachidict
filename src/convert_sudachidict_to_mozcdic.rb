@@ -31,7 +31,7 @@ file = File.new(filename, "r")
 file.close
 
 # Mozc の一般名詞のID
-id_mozc = "1847"
+id_mozc = "1843"
 
 l2 = []
 p = 0
