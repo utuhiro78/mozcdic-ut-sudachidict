@@ -31,7 +31,9 @@ file = File.new(filename, "r")
 file.close
 
 # Mozc の一般名詞のID
-id_mozc = "1843"
+url = "https://raw.githubusercontent.com/google/mozc/master/src/data/dictionary_oss/id.def"
+id_mozc = URI.open(url).read.split(" 名詞,一般,")[0]
+id_mozc = id_mozc.split("\n")[-1]
 
 l2 = []
 p = 0
