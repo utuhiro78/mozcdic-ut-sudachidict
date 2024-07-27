@@ -7,13 +7,13 @@
 import re
 import sys
 
-args = sys.argv[1:]
+files = sys.argv[1:]
 
-if not args:
+if not files:
     print("Usage: python script.py [FILE]")
     exit()
 
-file_name = args[0]
+file_name = files[0]
 
 # Mozc 形式の辞書を読み込む
 # なかいまさひろ    1917    1917    6477    中居正広

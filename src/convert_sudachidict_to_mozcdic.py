@@ -29,7 +29,7 @@ with ZipFile("notcore_lex.zip") as zip_ref:
 
 lines = lines.splitlines()
 
-dicname = "mozcdic-ut-sudachidict.txt"
+dict_name = "mozcdic-ut-sudachidict.txt"
 
 # Mozc の一般名詞のID
 url = "https://raw.githubusercontent.com/google/mozc/master/src/data/dictionary_oss/id.def"
@@ -124,5 +124,5 @@ for i in range(len(lines)):
 lines = l2
 l2 = []
 
-with open(dicname, "w", encoding="utf-8") as dicfile:
-    dicfile.writelines(lines)
+with open(dict_name, "w", encoding="utf-8") as dict_file:
+    dict_file.writelines(lines)
