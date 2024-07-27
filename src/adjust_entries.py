@@ -9,13 +9,13 @@ import re
 import sys
 from unicodedata import normalize
 
-targetfiles = sys.argv[1:]
+args = sys.argv[1:]
 
-if not targetfiles:
+if not args:
     print("Usage: python script.py [FILE]")
     sys.exit()
 
-file_name = targetfiles[0]
+file_name = args[0]
 
 with open(file_name, "r", encoding="utf-8") as file:
     lines = file.read().splitlines()
