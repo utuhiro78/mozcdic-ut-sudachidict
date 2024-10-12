@@ -1,6 +1,6 @@
 ## Overview
 
-Mozc UT SudachiDict Dictionary is a dictionary converted from [SudachiDict](https://github.com/WorksApplications/SudachiDict) for Mozc.
+A dictionary converted from [SudachiDict](https://github.com/WorksApplications/SudachiDict) for Mozc.
 
 Thanks to the SudachiDict team.
 
@@ -12,7 +12,7 @@ Source code: Apache License, Version 2.0
 
 ## Usage
 
-Add mozcdic-ut-*.txt to dictionary00.txt and build Mozc as usual.
+Add the dictionary to dictionary00.txt and build Mozc as usual.
 
 ```
 tar xf mozcdic-ut-*.txt.tar.bz2
